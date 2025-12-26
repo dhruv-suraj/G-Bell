@@ -1,5 +1,6 @@
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import aiHeadImage from 'figma:asset/a132c8c7ec5378ceb3db02cd81c4b9288970236e.png';
+import { SplineScene } from './ui/splite';
+
+const SPLINE_SCENE_URL = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
 
 export function Hero() {
   const scrollToContact = () => {
@@ -118,30 +119,16 @@ export function Hero() {
               />
             ))}
 
-            {/* Main AI Head Image */}
-            <div className="relative z-10" style={{ animation: 'float 6s ease-in-out infinite' }}>
-              <div className="relative">
-                {/* Image glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00F9FA]/20 to-[#F9030B]/20 blur-xl"></div>
-                
-                <img 
-                  src={aiHeadImage} 
-                  alt="AI Neural Network Head" 
-                  className="relative z-10 max-w-full h-auto rounded-lg"
-                  style={{
-                    filter: 'drop-shadow(0 0 30px rgba(0,249,250,0.4))',
-                    maxWidth: '600px'
-                  }}
+            {/* Main AI 3D Spline Scene */}
+            <div className="relative z-10 w-[500px] h-[500px] md:w-[600px] md:h-[600px]" style={{ animation: 'float 6s ease-in-out infinite' }}>
+              <div className="relative w-full h-full">
+                {/* Scene glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00F9FA]/20 to-[#F9030B]/20 blur-xl rounded-lg"></div>
+
+                <SplineScene
+                  scene={SPLINE_SCENE_URL}
+                  className="relative z-10 w-full h-full"
                 />
-                
-                {/* Scanning line effect */}
-                <div 
-                  className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00F9FA] to-transparent z-20"
-                  style={{
-                    animation: 'scan 3s ease-in-out infinite',
-                    boxShadow: '0 0 20px rgba(0,249,250,0.8)'
-                  }}
-                ></div>
               </div>
             </div>
 
