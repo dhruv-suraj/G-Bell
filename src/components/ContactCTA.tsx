@@ -13,7 +13,6 @@ export function ContactCTA() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
     setTimeout(() => {
@@ -31,57 +30,91 @@ export function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-black relative overflow-hidden">
-      {/* Radial grid background */}
-      <div className="absolute inset-0 opacity-10" 
+    <section id="contact" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d] via-[#0a0a0a] to-[#0d0d0d]"></div>
+
+      {/* Large centered glow */}
+      <div
+        className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at center, rgba(0,249,250,0.3) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}>
-      </div>
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(201, 169, 98, 0.08) 0%, transparent 50%)'
+        }}
+      ></div>
 
-      {/* Central beam of light */}
-      <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-1 bg-gradient-to-b from-transparent via-[#00F9FA]/30 to-transparent"></div>
-      
+      {/* Decorative lines */}
+      <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-[#C9A962]/20 to-transparent"></div>
+
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="relative bg-black/60 backdrop-blur-xl border-2 border-[#00F9FA]/30 rounded-2xl p-12 text-center overflow-hidden">
+        <div
+          className="relative p-12 md:p-16 text-center"
+          style={{ backgroundColor: '#141414', border: '1px solid rgba(201, 169, 98, 0.4)' }}
+        >
           {/* Corner accents */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#00F9FA] rounded-tl-2xl"></div>
-          <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-[#F9030B] rounded-tr-2xl"></div>
-          <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-[#F9030B] rounded-bl-2xl"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#00F9FA] rounded-br-2xl"></div>
+          <div className="absolute top-0 left-0 w-16 h-16" style={{ borderTop: '2px solid #C9A962', borderLeft: '2px solid #C9A962' }}></div>
+          <div className="absolute top-0 right-0 w-16 h-16" style={{ borderTop: '2px solid #C9A962', borderRight: '2px solid #C9A962' }}></div>
+          <div className="absolute bottom-0 left-0 w-16 h-16" style={{ borderBottom: '2px solid #C9A962', borderLeft: '2px solid #C9A962' }}></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16" style={{ borderBottom: '2px solid #C9A962', borderRight: '2px solid #C9A962' }}></div>
 
-          {/* Glowing orbs */}
-          <div className="absolute -top-20 left-1/4 w-40 h-40 bg-[#00F9FA] rounded-full blur-3xl opacity-20"></div>
-          <div className="absolute -bottom-20 right-1/4 w-40 h-40 bg-[#F9030B] rounded-full blur-3xl opacity-20"></div>
-          
+          {/* Diamond decorations */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="w-5 h-5 rotate-45" style={{ backgroundColor: '#141414', border: '2px solid #C9A962' }}></div>
+          </div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+            <div className="w-5 h-5 rotate-45" style={{ backgroundColor: '#141414', border: '2px solid #C9A962' }}></div>
+          </div>
+
           <div className="relative z-10">
             {!showForm ? (
               <>
-                <h2 className="text-white mb-4">
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#C9A962]"></div>
+                  <div className="w-3 h-3 bg-[#C9A962] rotate-45"></div>
+                  <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#C9A962]"></div>
+                </div>
+
+                <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>
                   Ready to Transform Your Phone Operations?
                 </h2>
-                <p className="text-gray-400 mb-8 text-lg">
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.25rem', color: '#BBBBBB', marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
                   See how G Bell can reduce costs, improve response times, and scale your business communications.
                 </p>
-                <button 
+                <button
                   onClick={() => setShowForm(true)}
-                  className="relative bg-white/5 backdrop-blur-sm border border-white/20 text-white px-10 py-4 rounded-full hover:bg-white/10 hover:shadow-[0_0_50px_rgba(0,249,250,0.5)] transition-all transform hover:scale-105 group"
+                  className="group relative overflow-hidden transition-all duration-500"
+                  style={{ border: '2px solid #C9A962', padding: '1rem 3rem', background: 'transparent' }}
                 >
-                  <span className="relative z-10">Contact Us</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00F9FA]/20 to-[#F9030B]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <span
+                    className="relative z-10 uppercase tracking-widest group-hover:text-[#0d0d0d] transition-colors duration-500"
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: '1rem', color: '#C9A962' }}
+                  >
+                    Contact Us
+                  </span>
+                  <div className="absolute inset-0 bg-[#C9A962] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                 </button>
               </>
             ) : (
               <div className="text-left">
                 {!isSubmitted ? (
                   <>
-                    <h2 className="text-white mb-2 text-center">Get in Touch</h2>
-                    <p className="text-gray-400 mb-6 text-center">Fill out the form below and we'll get back to you shortly.</p>
-                    
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="text-center mb-8">
+                      <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '2rem', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+                        Get in Touch
+                      </h2>
+                      <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', color: '#AAAAAA' }}>
+                        Fill out the form below and we'll get back to you shortly.
+                      </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
                       <div>
-                        <label htmlFor="name" className="block text-gray-400 mb-2 text-sm">Name *</label>
+                        <label
+                          htmlFor="name"
+                          className="block text-[#C9A962] mb-2 text-sm uppercase tracking-wider"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                        >
+                          Name *
+                        </label>
                         <input
                           type="text"
                           id="name"
@@ -89,13 +122,20 @@ export function ContactCTA() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full bg-black/50 border border-[#00F9FA]/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00F9FA] transition-colors"
+                          className="w-full bg-transparent border-b border-[#C9A962]/30 px-0 py-3 text-white focus:outline-none focus:border-[#C9A962] transition-colors"
+                          style={{ fontFamily: "'Cormorant Garamond', serif" }}
                           placeholder="Your full name"
                         />
                       </div>
-                      
+
                       <div>
-                        <label htmlFor="email" className="block text-gray-400 mb-2 text-sm">Email *</label>
+                        <label
+                          htmlFor="email"
+                          className="block text-[#C9A962] mb-2 text-sm uppercase tracking-wider"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                        >
+                          Email *
+                        </label>
                         <input
                           type="email"
                           id="email"
@@ -103,78 +143,107 @@ export function ContactCTA() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-black/50 border border-[#00F9FA]/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00F9FA] transition-colors"
+                          className="w-full bg-transparent border-b border-[#C9A962]/30 px-0 py-3 text-white focus:outline-none focus:border-[#C9A962] transition-colors"
+                          style={{ fontFamily: "'Cormorant Garamond', serif" }}
                           placeholder="your.email@company.com"
                         />
                       </div>
-                      
-                      <div className="grid md:grid-cols-2 gap-4">
+
+                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="company" className="block text-gray-400 mb-2 text-sm">Company</label>
+                          <label
+                            htmlFor="company"
+                            className="block text-[#C9A962] mb-2 text-sm uppercase tracking-wider"
+                            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                          >
+                            Company
+                          </label>
                           <input
                             type="text"
                             id="company"
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-[#00F9FA]/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00F9FA] transition-colors"
+                            className="w-full bg-transparent border-b border-[#C9A962]/30 px-0 py-3 text-white focus:outline-none focus:border-[#C9A962] transition-colors"
+                            style={{ fontFamily: "'Cormorant Garamond', serif" }}
                             placeholder="Your company"
                           />
                         </div>
-                        
+
                         <div>
-                          <label htmlFor="phone" className="block text-gray-400 mb-2 text-sm">Phone</label>
+                          <label
+                            htmlFor="phone"
+                            className="block text-[#C9A962] mb-2 text-sm uppercase tracking-wider"
+                            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                          >
+                            Phone
+                          </label>
                           <input
                             type="tel"
                             id="phone"
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-[#00F9FA]/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00F9FA] transition-colors"
+                            className="w-full bg-transparent border-b border-[#C9A962]/30 px-0 py-3 text-white focus:outline-none focus:border-[#C9A962] transition-colors"
+                            style={{ fontFamily: "'Cormorant Garamond', serif" }}
                             placeholder="(555) 123-4567"
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label htmlFor="message" className="block text-gray-400 mb-2 text-sm">Message</label>
+                        <label
+                          htmlFor="message"
+                          className="block text-[#C9A962] mb-2 text-sm uppercase tracking-wider"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                        >
+                          Message
+                        </label>
                         <textarea
                           id="message"
                           name="message"
                           rows={4}
                           value={formData.message}
                           onChange={handleChange}
-                          className="w-full bg-black/50 border border-[#00F9FA]/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00F9FA] transition-colors resize-none"
+                          className="w-full bg-transparent border-b border-[#C9A962]/30 px-0 py-3 text-white focus:outline-none focus:border-[#C9A962] transition-colors resize-none"
+                          style={{ fontFamily: "'Cormorant Garamond', serif" }}
                           placeholder="Tell us about your needs..."
                         />
                       </div>
-                      
-                      <div className="flex gap-4 pt-4">
+
+                      <div className="flex gap-6 pt-6">
                         <button
                           type="submit"
-                          className="flex-1 bg-[#00F9FA]/10 border border-[#00F9FA] text-[#00F9FA] px-6 py-3 rounded-full hover:bg-[#00F9FA]/20 transition-all"
+                          className="flex-1 group relative border border-[#C9A962] text-[#C9A962] px-8 py-4 transition-all duration-500 hover:text-[#0d0d0d] overflow-hidden"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
                         >
-                          Submit
+                          <span className="relative z-10 uppercase text-sm tracking-widest">Submit</span>
+                          <div className="absolute inset-0 bg-[#C9A962] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                         </button>
                         <button
                           type="button"
                           onClick={() => setShowForm(false)}
-                          className="flex-1 bg-white/5 border border-white/20 text-white px-6 py-3 rounded-full hover:bg-white/10 transition-all"
+                          className="flex-1 border border-white/20 text-white/60 px-8 py-4 transition-all duration-300 hover:border-white/40 hover:text-white"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
                         >
-                          Cancel
+                          <span className="uppercase text-sm tracking-widest">Cancel</span>
                         </button>
                       </div>
                     </form>
                   </>
                 ) : (
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-[#00F9FA]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-[#00F9FA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="w-16 h-16 rotate-45 flex items-center justify-center mx-auto mb-6" style={{ border: '2px solid #C9A962' }}>
+                      <svg className="w-8 h-8 -rotate-45" style={{ color: '#C9A962' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-white mb-2">Thank You!</h3>
-                    <p className="text-gray-400">We'll be in touch shortly.</p>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+                      Thank You
+                    </h3>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', color: '#AAAAAA' }}>
+                      We'll be in touch shortly.
+                    </p>
                   </div>
                 )}
               </div>

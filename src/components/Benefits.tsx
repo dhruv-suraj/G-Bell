@@ -1,10 +1,10 @@
-import { 
-  Workflow, 
-  CheckCircle, 
-  Eye, 
-  TrendingUp, 
-  Zap, 
-  Shield 
+import {
+  Workflow,
+  CheckCircle,
+  Eye,
+  TrendingUp,
+  Zap,
+  Shield
 } from 'lucide-react';
 
 const benefits = [
@@ -41,223 +41,133 @@ const benefits = [
 ];
 
 export function Benefits() {
-  const angleStep = 360 / benefits.length;
-  
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-b from-black via-[#022D35] to-black relative overflow-hidden">
-      {/* Radiating lines from center */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <svg className="w-full h-full" style={{ maxWidth: '1200px', maxHeight: '1200px' }}>
-          {benefits.map((_, i) => {
-            const angle = (i * angleStep - 90) * (Math.PI / 180);
-            const x1 = 50;
-            const y1 = 50;
-            const x2 = 50 + Math.cos(angle) * 45;
-            const y2 = 50 + Math.sin(angle) * 45;
-            
-            return (
-              <line
-                key={i}
-                x1={`${x1}%`}
-                y1={`${y1}%`}
-                x2={`${x2}%`}
-                y2={`${y2}%`}
-                stroke={i % 2 === 0 ? '#00F9FA' : '#F9030B'}
-                strokeWidth="1"
-                opacity="0.3"
-                strokeDasharray="5,5"
-              />
-            );
-          })}
-          {/* Orbital rings */}
-          <circle cx="50%" cy="50%" r="25%" fill="none" stroke="#00F9FA" strokeWidth="1" opacity="0.1" />
-          <circle cx="50%" cy="50%" r="35%" fill="none" stroke="#F9030B" strokeWidth="1" opacity="0.1" />
-          <circle cx="50%" cy="50%" r="45%" fill="none" stroke="#00F9FA" strokeWidth="1" opacity="0.1" />
-        </svg>
-      </div>
+    <section id="benefits" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d0d] via-[#0a0a0a] to-[#0d0d0d]"></div>
 
-      {/* Rotating orbital path */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div 
-          className="w-[450px] h-[450px] border border-[#00F9FA]/20 rounded-full"
-          style={{ animation: 'spin 40s linear infinite' }}
-        ></div>
-        <div 
-          className="absolute w-[520px] h-[520px] border border-[#F9030B]/10 rounded-full"
-          style={{ animation: 'spin 50s linear infinite reverse' }}
-        ></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div className="text-center mb-20">
-          <h2 className="text-white mb-6">Why Choose Graham Bell Voice AI?</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-4">
+      {/* Gold dot pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(201, 169, 98, 1) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+
+      {/* Subtle radial gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(201, 169, 98, 0.05) 0%, transparent 50%)'
+        }}
+      ></div>
+
+      {/* Floating glow orbs */}
+      <div
+        className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.05) 0%, transparent 60%)',
+          animation: 'glow-pulse 10s ease-in-out infinite'
+        }}
+      ></div>
+      <div
+        className="absolute bottom-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.05) 0%, transparent 60%)',
+          animation: 'glow-pulse 10s ease-in-out infinite',
+          animationDelay: '5s'
+        }}
+      ></div>
+
+      {/* Corner decorations */}
+      <div className="absolute top-20 left-20 w-40 h-40 border-t border-l border-[#C9A962]/10"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 border-b border-r border-[#C9A962]/10"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section header */}
+        <div className="text-center mb-24">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent to-[#C9A962]"></div>
+            <div className="w-3 h-3 bg-[#C9A962] rotate-45"></div>
+            <div className="h-px w-24 bg-gradient-to-l from-transparent to-[#C9A962]"></div>
+          </div>
+
+          <span
+            className="uppercase tracking-widest mb-4 block"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#C9A962', fontSize: '0.9rem', letterSpacing: '0.25em' }}
+          >
+            Why Choose Us
+          </span>
+
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '2.75rem', color: '#FFFFFF' }}>
+            Why Choose Graham Bell Voice AI?
+          </h2>
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.2rem', color: '#AAAAAA', maxWidth: '600px', margin: '1.5rem auto 0' }}>
             A complete platform built for real-world deployment
           </p>
         </div>
-        
-        {/* Central core */}
-        <div className="relative flex items-center justify-center min-h-[600px]">
-          {/* Center logo/icon */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              {/* Pulsing core */}
-              <div 
-                className="absolute inset-0 w-32 h-32 -m-16 bg-[#00F9FA] rounded-full blur-3xl animate-pulse"
-                style={{ opacity: 0.3 }}
-              ></div>
-              <div 
-                className="absolute inset-0 w-24 h-24 -m-12 bg-[#F9030B] rounded-full blur-2xl animate-pulse"
-                style={{ animationDelay: '0.5s', opacity: 0.2 }}
-              ></div>
-              
-              {/* Central icon */}
-              <div className="relative w-24 h-24 bg-gradient-to-br from-[#00F9FA] to-[#F9030B] rounded-full flex items-center justify-center"
-                style={{ 
-                  boxShadow: '0 0 60px rgba(0,249,250,0.5), 0 0 90px rgba(249,3,11,0.3)',
-                  animation: 'float 4s ease-in-out infinite'
-                }}
-              >
-                <svg className="w-12 h-12 text-black" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-                </svg>
-              </div>
 
-              {/* Orbital rings around center */}
-              <div className="absolute inset-0 w-32 h-32 -m-4 border-2 border-[#00F9FA]/30 rounded-full"
-                style={{ animation: 'spin 15s linear infinite' }}
-              ></div>
-              <div className="absolute inset-0 w-40 h-40 -m-8 border-2 border-[#F9030B]/20 rounded-full"
-                style={{ animation: 'spin 20s linear infinite reverse' }}
-              ></div>
-            </div>
-          </div>
-
-          {/* Orbital benefit cards */}
-          <div className="w-full">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const isCyan = index % 2 === 0;
-              const angle = (index * angleStep - 90) * (Math.PI / 180);
-              
-              // Calculate position on circular orbit
-              const radius = 260; // Distance from center
-              const x = Math.cos(angle) * radius;
-              const y = Math.sin(angle) * radius;
-              
-              return (
+        {/* Benefits grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+            return (
+              <div key={index} className="group relative">
                 <div
-                  key={index}
-                  className="absolute left-1/2 top-1/2"
-                  style={{
-                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                    animation: `orbitFloat ${5 + index * 0.5}s ease-in-out infinite`,
-                    animationDelay: `${index * 0.3}s`
-                  }}
+                  className="relative p-10 transition-all duration-500 h-full hover:transform hover:-translate-y-1"
+                  style={{ backgroundColor: '#141414', border: '1px solid rgba(201, 169, 98, 0.3)' }}
                 >
-                  {/* Connecting dot */}
-                  <div 
-                    className="absolute left-1/2 top-1/2 w-3 h-3 -ml-1.5 -mt-1.5 rounded-full z-0"
-                    style={{
-                      background: isCyan ? '#00F9FA' : '#F9030B',
-                      boxShadow: `0 0 15px ${isCyan ? '#00F9FA' : '#F9030B'}`,
-                      animation: 'pulse 2s ease-in-out infinite',
-                      animationDelay: `${index * 0.2}s`
-                    }}
-                  ></div>
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#C9A962]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  {/* Card */}
-                  <div 
-                    className="relative group w-64"
-                    style={{
-                      animation: `fadeIn 0.6s ease-out`,
-                      animationDelay: `${0.8 + index * 0.15}s`,
-                      animationFillMode: 'both'
-                    }}
-                  >
-                    {/* Glowing backdrop */}
-                    <div 
-                      className="absolute -inset-2 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
-                      style={{ background: isCyan ? '#00F9FA' : '#F9030B' }}
-                    ></div>
-                    
-                    <div 
-                      className="relative bg-black/90 backdrop-blur-md border-2 rounded-xl p-6 overflow-hidden transition-all group-hover:scale-105"
-                      style={{ 
-                        borderColor: isCyan ? '#00F9FA' : '#F9030B',
-                        boxShadow: `0 0 20px ${isCyan ? 'rgba(0,249,250,0.2)' : 'rgba(249,3,11,0.2)'}`
-                      }}
-                    >
-                      {/* Corner accent */}
-                      <div 
-                        className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 rounded-tr-xl"
-                        style={{ borderColor: isCyan ? '#00F9FA' : '#F9030B' }}
-                      ></div>
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-10 h-10 transition-all duration-300 group-hover:w-14 group-hover:h-14" style={{ borderTop: '2px solid #C9A962', borderLeft: '2px solid #C9A962' }}></div>
+                  <div className="absolute bottom-0 right-0 w-10 h-10 transition-all duration-300 group-hover:w-14 group-hover:h-14" style={{ borderBottom: '2px solid #C9A962', borderRight: '2px solid #C9A962' }}></div>
 
-                      {/* Icon */}
-                      <div className="flex justify-center mb-4">
-                        <div className="relative">
-                          <div 
-                            className="absolute inset-0 blur-lg opacity-50 group-hover:opacity-80 transition-opacity"
-                            style={{ background: isCyan ? '#00F9FA' : '#F9030B' }}
-                          ></div>
-                          <div 
-                            className="relative w-14 h-14 rounded-full flex items-center justify-center border-2"
-                            style={{ 
-                              borderColor: isCyan ? '#00F9FA' : '#F9030B',
-                              background: `${isCyan ? '#00F9FA' : '#F9030B'}15`
-                            }}
-                          >
-                            <Icon 
-                              className="w-7 h-7 relative z-10" 
-                              style={{ color: isCyan ? '#00F9FA' : '#F9030B' }}
-                            />
-                          </div>
+                  <div className="relative z-10">
+                    {/* Icon container */}
+                    <div className="mb-8 flex justify-center">
+                      <div className="relative">
+                        <div
+                          className="w-16 h-16 rotate-45 flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+                          style={{ border: '1px solid rgba(201, 169, 98, 0.5)', backgroundColor: 'rgba(201, 169, 98, 0.05)' }}
+                        >
+                          <Icon className="w-7 h-7 text-[#C9A962] -rotate-45 transition-colors duration-300" strokeWidth={1.5} />
                         </div>
                       </div>
-
-                      {/* Content */}
-                      <h3 className="text-white text-center mb-2 text-lg">{benefit.title}</h3>
-                      <p className="text-gray-400 text-center text-sm leading-relaxed">{benefit.description}</p>
-
-                      {/* Bottom accent line */}
-                      <div 
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full"
-                        style={{ 
-                          background: `linear-gradient(90deg, transparent, ${isCyan ? '#00F9FA' : '#F9030B'}, transparent)`,
-                          boxShadow: `0 0 10px ${isCyan ? '#00F9FA' : '#F9030B'}`
-                        }}
-                      ></div>
                     </div>
+
+                    {/* Content */}
+                    <h3
+                      className="text-center mb-4 group-hover:text-[#C9A962] transition-colors duration-300"
+                      style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '1.35rem', color: '#FFFFFF' }}
+                    >
+                      {benefit.title}
+                    </h3>
+                    <p
+                      className="text-center"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', color: '#BBBBBB', lineHeight: 1.7 }}
+                    >
+                      {benefit.description}
+                    </p>
                   </div>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#C9A962] group-hover:w-24 transition-all duration-500"></div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom decorative element */}
+        <div className="flex items-center justify-center gap-4 mt-20">
+          <div className="h-px w-32 bg-gradient-to-r from-transparent to-[#C9A962]/30"></div>
+          <div className="w-2 h-2 bg-[#C9A962]/50 rotate-45"></div>
+          <div className="h-px w-32 bg-gradient-to-l from-transparent to-[#C9A962]/30"></div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0) scale(1); }
-          50% { transform: translateY(-10px) scale(1.05); }
-        }
-        
-        @keyframes orbitFloat {
-          0%, 100% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) translateY(0); }
-          50% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) translateY(-8px); }
-        }
-        
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.8); }
-          to { opacity: 1; transform: scale(1); }
-        }
-      `}</style>
     </section>
   );
 }

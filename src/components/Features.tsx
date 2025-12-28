@@ -1,215 +1,125 @@
-import { 
-  PhoneOutgoing, 
-  PhoneIncoming, 
-  FileText, 
-  Mic, 
-  BarChart3, 
-  DollarSign, 
-  ArrowUpCircle 
+import {
+  PhoneOutgoing,
+  PhoneIncoming,
+  FileText,
+  Mic,
+  BarChart3,
+  DollarSign
 } from 'lucide-react';
 
 const features = [
-  {
-    icon: PhoneOutgoing,
-    title: 'Outbound Campaigns',
-    description: 'Automated campaigns, reminders, and follow-ups at scale',
-    color: '#00F9FA'
-  },
-  {
-    icon: PhoneIncoming,
-    title: 'Inbound Support',
-    description: '24/7 support, scheduling, and inquiry handling',
-    color: '#F9030B'
-  },
-  {
-    icon: FileText,
-    title: 'Full Transcriptions',
-    description: 'Complete conversation transcripts with searchable history',
-    color: '#00F9FA'
-  },
-  {
-    icon: Mic,
-    title: 'Call Recordings',
-    description: 'Audio recordings for quality assurance and compliance',
-    color: '#F9030B'
-  },
-  {
-    icon: BarChart3,
-    title: 'Analytics Dashboard',
-    description: 'Real-time performance metrics and insights',
-    color: '#00F9FA'
-  },
-  {
-    icon: DollarSign,
-    title: 'Cost Tracking',
-    description: 'Monitor ROI with detailed cost and volume analytics',
-    color: '#F9030B'
-  },
-  {
-    icon: ArrowUpCircle,
-    title: 'Smart Escalation',
-    description: 'Seamless handoff to humans with complete call history',
-    color: '#00F9FA'
-  }
+  { icon: PhoneOutgoing, title: 'Outbound Campaigns', description: 'Automated campaigns, reminders, and follow-ups at scale' },
+  { icon: PhoneIncoming, title: 'Inbound Support', description: '24/7 support, scheduling, and inquiry handling' },
+  { icon: FileText, title: 'Full Transcriptions', description: 'Complete conversation transcripts with searchable history' },
+  { icon: Mic, title: 'Call Recordings', description: 'Audio recordings for quality assurance and compliance' },
+  { icon: BarChart3, title: 'Analytics Dashboard', description: 'Real-time performance metrics and insights' },
+  { icon: DollarSign, title: 'Cost Tracking', description: 'Monitor ROI with detailed cost and volume analytics' }
 ];
 
 export function Features() {
   return (
-    <section id="features" className="py-32 bg-black relative overflow-hidden">
-      {/* Animated wave background */}
-      <div className="absolute inset-0 opacity-20">
-        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00F9FA" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#F9030B" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#00F9FA" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
-          <path 
-            d="M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100 V200 H0 Z" 
-            fill="url(#waveGradient1)"
-            style={{ animation: 'wave 8s ease-in-out infinite' }}
-          />
-          <path 
-            d="M0,150 Q250,100 500,150 T1000,150 T1500,150 T2000,150 V200 H0 Z" 
-            fill="url(#waveGradient1)"
-            opacity="0.5"
-            style={{ animation: 'wave 10s ease-in-out infinite reverse' }}
-          />
-        </svg>
-      </div>
+    <section id="features" className="py-32 bg-[#0d0d0d] relative overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]"></div>
 
-      {/* Hexagonal pattern overlay */}
-      <div className="absolute inset-0 opacity-5" 
+      {/* Subtle dot pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='50' height='43' viewBox='0 0 50 43' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 0l12.5 7.2v14.4L25 28.8 12.5 21.6V7.2L25 0z' fill='none' stroke='%2300F9FA' stroke-width='1'/%3E%3C/svg%3E")`,
-          backgroundSize: '50px 43px'
-        }}>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-white mb-4">Complete Voice AI Platform Capabilities</h2>
-          <div className="flex items-center justify-center gap-2">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#00F9FA]"></div>
-            <div className="w-2 h-2 bg-[#00F9FA] rounded-full" style={{ boxShadow: '0 0 10px #00F9FA' }}></div>
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#F9030B]"></div>
-          </div>
-        </div>
-        
-        {/* Honeycomb/Hexagonal layout */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Custom hexagonal grid positioning */}
-          <div className="flex flex-col items-center gap-8">
-            {/* Row 1 - 3 items */}
-            <div className="flex gap-8 flex-wrap justify-center">
-              {features.slice(0, 3).map((feature, index) => (
-                <FeatureHexagon key={index} feature={feature} index={index} />
-              ))}
-            </div>
-            
-            {/* Row 2 - 4 items (offset) */}
-            <div className="flex gap-8 flex-wrap justify-center -mt-4">
-              {features.slice(3, 7).map((feature, index) => (
-                <FeatureHexagon key={index + 3} feature={feature} index={index + 3} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes wave {
-          0%, 100% { transform: translateX(0) translateY(0); }
-          50% { transform: translateX(-25px) translateY(-10px); }
-        }
-        
-        @keyframes hexFloat {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(2deg); }
-        }
-        
-        @keyframes hexGlow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
-        }
-      `}</style>
-    </section>
-  );
-}
-
-function FeatureHexagon({ feature, index }: { feature: typeof features[0], index: number }) {
-  const Icon = feature.icon;
-  const isCyan = feature.color === '#00F9FA';
-  
-  return (
-    <div 
-      className="relative group"
-      style={{
-        animation: `hexFloat ${4 + index * 0.3}s ease-in-out infinite`,
-        animationDelay: `${index * 0.2}s`
-      }}
-    >
-      {/* Hexagon shape using clip-path */}
-      <div 
-        className="relative w-64 h-72 flex items-center justify-center"
-        style={{
-          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-        }}
-      >
-        {/* Glowing background */}
-        <div 
-          className="absolute inset-0 blur-xl"
-          style={{
-            background: isCyan ? '#00F9FA' : '#F9030B',
-            animation: 'hexGlow 3s ease-in-out infinite',
-            animationDelay: `${index * 0.3}s`
-          }}
-        ></div>
-        
-        {/* Main hexagon */}
-        <div 
-          className="absolute inset-2 bg-black backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center"
-          style={{
-            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-            border: `2px solid ${isCyan ? '#00F9FA' : '#F9030B'}`,
-          }}
-        >
-          {/* Icon with glow */}
-          <div className="relative mb-4">
-            <div 
-              className="absolute inset-0 blur-lg"
-              style={{ background: isCyan ? '#00F9FA' : '#F9030B', opacity: 0.4 }}
-            ></div>
-            <Icon 
-              className="relative z-10 w-10 h-10" 
-              style={{ color: isCyan ? '#00F9FA' : '#F9030B' }}
-            />
-          </div>
-          
-          <h3 className="text-white mb-3 text-lg">{feature.title}</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-        </div>
-
-        {/* Border glow on hover */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-            boxShadow: `0 0 30px ${isCyan ? '#00F9FA' : '#F9030B'}, inset 0 0 30px ${isCyan ? '#00F9FA' : '#F9030B'}`,
-          }}
-        ></div>
-      </div>
-
-      {/* Corner accent dots */}
-      <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-        style={{ 
-          background: isCyan ? '#00F9FA' : '#F9030B',
-          boxShadow: `0 0 8px ${isCyan ? '#00F9FA' : '#F9030B'}`
+          backgroundImage: 'radial-gradient(rgba(201, 169, 98, 0.8) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
         }}
       ></div>
-    </div>
+
+      {/* Floating glow orbs */}
+      <div
+        className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.06) 0%, transparent 60%)',
+          animation: 'glow-pulse 12s ease-in-out infinite'
+        }}
+      ></div>
+
+      {/* Corner decorations */}
+      <div className="absolute top-16 left-16 w-32 h-32 border-t border-l border-[#C9A962]/10"></div>
+      <div className="absolute bottom-16 right-16 w-32 h-32 border-b border-r border-[#C9A962]/10"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-24">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent to-[#C9A962]"></div>
+            <div className="w-3 h-3 bg-[#C9A962] rotate-45"></div>
+            <div className="h-px w-24 bg-gradient-to-l from-transparent to-[#C9A962]"></div>
+          </div>
+
+          <span
+            className="uppercase tracking-widest mb-4 block"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#C9A962', fontSize: '0.9rem', letterSpacing: '0.25em' }}
+          >
+            Platform Features
+          </span>
+
+          <h2
+            className="mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '2.75rem', color: '#FFFFFF' }}
+          >
+            Complete Voice AI Capabilities
+          </h2>
+
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.2rem', color: '#AAAAAA', maxWidth: '600px', margin: '0 auto' }}>
+            Everything you need to automate and enhance your voice operations
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div key={index} className="group relative">
+                <div
+                  className="relative p-8 transition-all duration-500 h-full hover:transform hover:-translate-y-1"
+                  style={{
+                    backgroundColor: '#141414',
+                    border: '1px solid rgba(201, 169, 98, 0.25)',
+                  }}
+                >
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-10 h-10 transition-all duration-300 group-hover:w-14 group-hover:h-14" style={{ borderTop: '2px solid #C9A962', borderLeft: '2px solid #C9A962' }}></div>
+                  <div className="absolute bottom-0 right-0 w-10 h-10 transition-all duration-300 group-hover:w-14 group-hover:h-14" style={{ borderBottom: '2px solid #C9A962', borderRight: '2px solid #C9A962' }}></div>
+
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#C9A962]/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="relative z-10">
+                    <div className="mb-5">
+                      <div
+                        className="w-14 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                        style={{ border: '1px solid rgba(201, 169, 98, 0.4)', backgroundColor: 'rgba(201, 169, 98, 0.05)' }}
+                      >
+                        <Icon className="w-7 h-7 text-[#C9A962] group-hover:text-[#D4B96A] transition-colors duration-300" strokeWidth={1.5} />
+                      </div>
+                    </div>
+
+                    <h3
+                      className="mb-3 group-hover:text-[#C9A962] transition-colors duration-300"
+                      style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, fontSize: '1.35rem', color: '#FFFFFF' }}
+                    >
+                      {feature.title}
+                    </h3>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', color: '#BBBBBB', lineHeight: 1.7 }}>
+                      {feature.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom accent line on hover */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#C9A962] group-hover:w-20 transition-all duration-500"></div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
   );
 }

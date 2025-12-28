@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 const CONFIG = {
   particleCount: 18000,
-  silverPalette: ['#C0C0C0', '#D3D3D3', '#E5E4E2', '#848482', '#FFFFFF'],
+  goldPalette: ['#C9A962', '#D4B96A', '#B8860B', '#F7E7CE', '#E8D5B5', '#D4AF37'],
   twinkleIntensity: 0.071,
   baseScale: 0.8,
   sphereRadius: 2.2,
@@ -50,7 +50,7 @@ export function Preloader({ onComplete, brandText = "G-Bell" }: PreloaderProps) 
       positions[i3 + 1] = CONFIG.sphereRadius * Math.sin(theta) * Math.sin(phi);
       positions[i3 + 2] = CONFIG.sphereRadius * Math.cos(phi);
 
-      const hex = CONFIG.silverPalette[Math.floor(Math.random() * CONFIG.silverPalette.length)];
+      const hex = CONFIG.goldPalette[Math.floor(Math.random() * CONFIG.goldPalette.length)];
       colorObj.set(hex).multiplyScalar(0.7 + Math.random() * 0.5);
       colors[i3] = colorObj.r;
       colors[i3 + 1] = colorObj.g;
@@ -214,15 +214,15 @@ export function Preloader({ onComplete, brandText = "G-Bell" }: PreloaderProps) 
         <h1
           ref={brandRef}
           style={{
-            color: '#E5E4E2',
+            color: '#C9A962',
             fontFamily: "'Cinzel', serif",
             fontSize: 'clamp(2rem, 8vw, 4rem)',
-            fontWeight: 400,
-            letterSpacing: '18px',
+            fontWeight: 500,
+            letterSpacing: '0.3em',
             textTransform: 'uppercase',
             margin: 0,
             opacity: 0,
-            textShadow: '0 0 20px rgba(255, 255, 255, 0.2)'
+            textShadow: '0 0 40px rgba(201, 169, 98, 0.3)'
           }}
         >
           {brandText}
